@@ -38,11 +38,11 @@ namespace ElevenNoteWebMVC.Controllers
                 return View(model);
             }
 
-            var service = NewMethod();
+            var service = CreateNoteService();
 
            if (service.CreateNote(model))
             {
-                ViewBag.SaveResult = "Your note was created.";
+                TempData["SaveResult"] = "Your note was created.";
                 return RedirectToAction("Index");
             }
 
@@ -57,6 +57,16 @@ namespace ElevenNoteWebMVC.Controllers
             var service = new NoteService(userID);
             return service;
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateNoteService();
+            var model = svc.GetNoteById(id);
+
+            return View(model);
+        }
+
+
     }
 
 }
