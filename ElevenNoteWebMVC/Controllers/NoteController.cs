@@ -16,8 +16,8 @@ namespace ElevenNoteWebMVC.Controllers
         // GET: Note
         public ActionResult Index()
         {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new NoteService(userID);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NoteService(userId);
             var model = service.GetNotes();
 
             return View();
@@ -40,7 +40,7 @@ namespace ElevenNoteWebMVC.Controllers
 
             var service = CreateNoteService();
 
-           if (service.CreateNote(model))
+            if (service.CreateNote(model))
             {
                 TempData["SaveResult"] = "Your note was created.";
                 return RedirectToAction("Index");
@@ -51,12 +51,13 @@ namespace ElevenNoteWebMVC.Controllers
             return View(model);
         }
 
-        private NoteService NewMethod()
+        private NoteService CreateNoteService()
         {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new NoteService(userID);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NoteService(userId);
             return service;
         }
+
 
         public ActionResult Details(int id)
         {
