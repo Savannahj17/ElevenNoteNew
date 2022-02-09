@@ -243,10 +243,11 @@
     <Content Include="Views\Note\Edit.cshtml" />
     <Content Include="Views\Note\Delete.cshtml" />
     <Content Include="Views\Shared\DateTimeOffset.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

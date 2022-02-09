@@ -30,6 +30,7 @@ namespace ElevenNoteWebMVC.Controllers
             return View(Role);
         }
 
+        [HttpPost]
         public ActionResult Create(IdentityRole Role)
         {
             _db.Roles.Add(Role);
